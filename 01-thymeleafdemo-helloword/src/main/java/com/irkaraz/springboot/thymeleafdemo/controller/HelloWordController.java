@@ -3,10 +3,7 @@ package com.irkaraz.springboot.thymeleafdemo.controller;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
@@ -25,6 +22,7 @@ public class HelloWordController {
     }
 
     // need a controller method to read form data and add data the model
+    // (model é usado de ponte para que os dados recebidos pelo thymeleaf converse com a controller)
     @RequestMapping("/processFormVersionTwo")
     public String letsShoutDude(HttpServletRequest request, Model model) {
 
