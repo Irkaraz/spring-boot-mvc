@@ -1,35 +1,49 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Student Registration Form</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Student Registration Form</title>
+    </head>
+    <body>
 
-<h3>Student Registration Form</h3>
+    <h3>Student Registration Form</h3>
 
-<form th:action="@{/processStudentForm}" th:object="${student}" method="POST">
-    <p>
-        First name: <input type="text" th:field="*{firstName}"/>
-        <br><br>
-        Last name: <input type="text" th:field="*{lastName}"/>
-        <br><br>
-        Country:
-        <select th:field="*{country}">
-            <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}"></option>
-        </select>
-        <br><br>
-        Favorite Programing Language:
-        <input type="radio" th:field="*{favoriteLanguage}"
-               th:each="tempLanguage : ${programLanguages}"
-               th:value="${tempLanguage}" th:text="${tempLanguage}"/>
+        <form th:action="@{/processStudentForm}" th:object="${student}" method="POST">
+            <p>
+                First name: <input type="text" th:field="*{firstName}"/>
 
-        <br><br>
-        <input type="submit" value="Submit"/>
-    </p>
+                <br><br>
 
-</form>
+                Last name: <input type="text" th:field="*{lastName}"/>
 
-</body>
+                <br><br>
+
+                Country:
+                <select th:field="*{country}">
+                    <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}"></option>
+                </select>
+
+                <br><br>
+
+                Favorite Programing Language:
+                <input type="radio" th:field="*{favoriteLanguage}"
+                       th:each="tempLanguage : ${programLanguages}"
+                       th:value="${tempLanguage}" th:text="${tempLanguage}"/>
+                <br><br>
+
+                Favorite Operating Systems:
+                    <input type="checkbox" th:field="*{favoriteSystems}"
+                           th:each="tempSystem : ${operatingSystems}"
+                           th:value="${tempSystem}" th:text="${tempSystem}"/>
+                <br><br>
+
+
+                <input type="submit" value="Submit"/>
+
+            </p>
+
+        </form>
+
+    </body>
 </html>
